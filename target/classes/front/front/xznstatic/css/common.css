@@ -394,3 +394,5 @@ i, em {
 .pro_con {
 	margin-top: 20px
 }
+
+[v-cloak] {display: none;}

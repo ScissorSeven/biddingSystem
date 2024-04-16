@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="../../css/theme.css" />
 	<!-- 通用的css -->
 	<link rel="stylesheet" href="../../css/common.css" />
+	<link rel="stylesheet" href="../../elementui/elementui.css"/>
 </head>
 <style>
 	html::after {
@@ -70,6 +71,9 @@ padding-bottom: 20px;
 .data-detail .layui-breadcrumb a.first {
 color: rgba(0, 0, 0, 1) !important;
 }
+	.el-page-header__content{
+		color: #fff;
+	}
 </style>
 <body>
 
@@ -78,8 +82,10 @@ color: rgba(0, 0, 0, 1) !important;
 		<div class="data-detail">
 			<div class="data-detail-breadcrumb" :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(255,0,0,.3)","margin":"20px auto","borderColor":"rgba(19, 175, 105, 1)","backgroundColor":"rgba(19, 175, 105, 1)","borderRadius":"4px","borderWidth":"1px","borderStyle":"solid","height":"54px"}'>
 				<span class="layui-breadcrumb">
-					<a class="first" :style='{"padding":"8px 10px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"0 5px","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","color":"rgba(0, 0, 0, 1)","borderRadius":"0","borderWidth":"0","fontSize":"16px","borderStyle":"solid"}' href="../home/home.html">首页</a>
-					<a><cite :style='{"padding":"8px 15px","boxShadow":"0 0 6px rgba(255,0,0,.3)","margin":"0 15px","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","color":"#333","borderRadius":"4px","borderWidth":"0","fontSize":"16px","borderStyle":"solid"}'>{{title}}</cite></a>
+<!--					<a class="first" :style='{"padding":"8px 10px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"0 5px","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","color":"rgba(0, 0, 0, 1)","borderRadius":"0","borderWidth":"0","fontSize":"16px","borderStyle":"solid"}' href="../home/home.html">首页</a>-->
+<!--					<a><cite :style='{"padding":"8px 15px","boxShadow":"0 0 6px rgba(255,0,0,.3)","margin":"0 15px","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","color":"#333","borderRadius":"4px","borderWidth":"0","fontSize":"16px","borderStyle":"solid"}'>{{title}}</cite></a>-->
+					<el-page-header @back="goBack" :content="title" style="color: #fff;">
+					</el-page-header>
 				</span>
 				
 	     <a v-if='storeupFlag' :style='{"padding":"0 12px","boxShadow":"0 0 6px rgba(255,0,0,.3)","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","color":"rgba(255, 144, 18, 1)","borderRadius":"4px","borderWidth":"0","fontSize":"16px","lineHeight":"34px","borderStyle":"solid"}' @click="storeUp()" href="javascript:void(0)">
@@ -110,7 +116,7 @@ color: rgba(0, 0, 0, 1) !important;
 					
 		
 				</div>
-				<div class="layui-col-md7" style="padding-left: 20px;flex: 1;" :style='{"padding":"0","boxShadow":"10px 6px 0px #FF9012","margin":"0 0 0 20px","borderColor":"rgba(255, 144, 18, 1)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0px","borderStyle":"solid"}'>
+				<div class="layui-col-md7" style="padding-left: 20px;flex: 1;" :style='{"padding":"0","boxShadow":"10px 6px 0px #545c64","margin":"0 0 0 20px","borderColor":"#545c64","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0px","borderStyle":"solid"}'>
 					<h1 style="position: relative;" :style='{"padding":"10px 15px","boxShadow":"0 0 0px rgba(255,0,0,.3)","borderColor":"rgba(0, 186, 189, 1)","backgroundColor":"rgba(19, 175, 105, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"0","textAlign":"left","borderWidth":"0","fontSize":"16px","borderStyle":"solid"}' class="title">{{title}}</h1>
 					
 
@@ -170,16 +176,9 @@ color: rgba(0, 0, 0, 1) !important;
 			<div class="layui-row detail-tab">
 				<div class="layui-tab layui-tab-card" :style='{"boxShadow":"0 0 0px #FF9012","borderColor":"rgba(255, 144, 18, 1)","backgroundColor":"rgba(255, 255, 255, 1)","borderRadius":"10px","borderStyle":"solid","borderWidth":"0px"}' style="overflow: hidden;">
 
-					<ul class="layui-tab-title" :style='{"color":"rgba(255, 255, 255, 1)","backgroundColor":"rgba(255, 144, 18, 1)","fontSize":"14px"}'>
+					<ul class="layui-tab-title" :style='{"color":"rgba(255, 255, 255, 1)","backgroundColor":"#545c64","fontSize":"14px"}'>
 						
 						<li class="layui-this">招标内容</li>
-						
-
-						
-						
-
-						
-						
 
 					</ul>
 
@@ -188,13 +187,6 @@ color: rgba(0, 0, 0, 1) !important;
 						<div class="layui-tab-item layui-show">
 							<div v-html="detail.zhaobiaoneirong"></div>
 						</div>
-						
-
-						
-						
-
-						
-						
 
 					</div>
 				</div>
@@ -206,6 +198,7 @@ color: rgba(0, 0, 0, 1) !important;
 
 	<script src="../../layui/layui.js"></script>
 	<script src="../../js/vue.js"></script>
+	<script src="../../elementui/elementui.js"></script>
 	<!-- 组件配置信息 -->
 	<script src="../../js/config.js"></script>
 	<!-- 扩展插件配置信息 -->
@@ -383,7 +376,9 @@ color: rgba(0, 0, 0, 1) !important;
 						});
 					});
 				},
-
+				goBack(){
+					location.href="../home/home.html"
+				}
 
 			}
 		})

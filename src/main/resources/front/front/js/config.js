@@ -52,17 +52,18 @@ var indexNav = [
 },
 ]
 
-var adminurl =  "http://localhost:8080/springbootxf481/admin/dist/index.html";
+var adminurl =  "http://localhost:8848/springbootxf481/admin/dist/index.html";
 
-var cartFlag = false
+var baseurl = "http://localhost:8848/springbootxf481/"
 
-var chatFlag = false
+var cartFlag = true
+
+var chatFlag = true
 
 
 
 
 var menu = [{"backMenu":[{"child":[{"buttons":["查看","修改","删除"],"menu":"投标人","menuJump":"列表","tableName":"toubiaoren"}],"menu":"投标人管理"},{"child":[{"buttons":["查看","修改","删除"],"menu":"招标人","menuJump":"列表","tableName":"zhaobiaoren"}],"menu":"招标人管理"},{"child":[{"buttons":["查看","修改","删除"],"menu":"评标人","menuJump":"列表","tableName":"pingbiaoren"}],"menu":"评标人管理"},{"child":[{"buttons":["新增","查看","修改","删除","查看评论"],"menu":"招标信息","menuJump":"列表","tableName":"zhaobiaoxinxi"}],"menu":"招标信息管理"},{"child":[{"buttons":["查看","修改","删除"],"menu":"投标信息","menuJump":"列表","tableName":"toubiaoxinxi"}],"menu":"投标信息管理"},{"child":[{"buttons":["查看","修改","删除"],"menu":"评标信息","menuJump":"列表","tableName":"pingbiaoxinxi"}],"menu":"评标信息管理"},{"child":[{"buttons":["查看","修改","删除"],"menu":"中标信息","menuJump":"列表","tableName":"zhongbiaoxinxi"}],"menu":"中标信息管理"},{"child":[{"buttons":["查看","修改"],"menu":"轮播图管理","tableName":"config"},{"buttons":["新增","查看","修改","删除"],"menu":"公告信息","tableName":"news"}],"menu":"系统管理"}],"frontMenu":[{"child":[{"buttons":["查看","投标"],"menu":"招标信息列表","menuJump":"列表","tableName":"zhaobiaoxinxi"}],"menu":"招标信息模块"}],"hasBackLogin":"是","hasBackRegister":"否","hasFrontLogin":"否","hasFrontRegister":"否","roleName":"管理员","tableName":"users"},{"backMenu":[{"child":[{"buttons":["查看","删除"],"menu":"投标信息","menuJump":"列表","tableName":"toubiaoxinxi"}],"menu":"投标信息管理"},{"child":[{"buttons":["查看"],"menu":"评标信息","menuJump":"列表","tableName":"pingbiaoxinxi"}],"menu":"评标信息管理"},{"child":[{"buttons":["查看","审核"],"menu":"中标信息","menuJump":"列表","tableName":"zhongbiaoxinxi"}],"menu":"中标信息管理"}],"frontMenu":[{"child":[{"buttons":["查看","投标"],"menu":"招标信息列表","menuJump":"列表","tableName":"zhaobiaoxinxi"}],"menu":"招标信息模块"}],"hasBackLogin":"是","hasBackRegister":"否","hasFrontLogin":"是","hasFrontRegister":"是","roleName":"投标人","tableName":"toubiaoren"},{"backMenu":[{"child":[{"buttons":["新增","查看","修改","删除"],"menu":"招标信息","menuJump":"列表","tableName":"zhaobiaoxinxi"}],"menu":"招标信息管理"},{"child":[{"buttons":["查看","删除","审核","中标"],"menu":"投标信息","menuJump":"列表","tableName":"toubiaoxinxi"}],"menu":"投标信息管理"},{"child":[{"buttons":["查看"],"menu":"评标信息","menuJump":"列表","tableName":"pingbiaoxinxi"}],"menu":"评标信息管理"},{"child":[{"buttons":["查看","修改","删除"],"menu":"中标信息","menuJump":"列表","tableName":"zhongbiaoxinxi"}],"menu":"中标信息管理"}],"frontMenu":[{"child":[{"buttons":["查看","投标"],"menu":"招标信息列表","menuJump":"列表","tableName":"zhaobiaoxinxi"}],"menu":"招标信息模块"}],"hasBackLogin":"是","hasBackRegister":"否","hasFrontLogin":"否","hasFrontRegister":"是","roleName":"招标人","tableName":"zhaobiaoren"},{"backMenu":[{"child":[{"buttons":["查看","评标"],"menu":"投标信息","menuJump":"列表","tableName":"toubiaoxinxi"}],"menu":"投标信息管理"},{"child":[{"buttons":["查看","修改","删除"],"menu":"评标信息","menuJump":"列表","tableName":"pingbiaoxinxi"}],"menu":"评标信息管理"}],"frontMenu":[{"child":[{"buttons":["查看","投标"],"menu":"招标信息列表","menuJump":"列表","tableName":"zhaobiaoxinxi"}],"menu":"招标信息模块"}],"hasBackLogin":"是","hasBackRegister":"否","hasFrontLogin":"否","hasFrontRegister":"是","roleName":"评标人","tableName":"pingbiaoren"}]
-
 
 var isAuth = function (tableName,key) {
     let role = localStorage.getItem("userTable");

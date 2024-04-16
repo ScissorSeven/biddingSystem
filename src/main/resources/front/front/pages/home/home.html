@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="../../layui/css/layui.css">
 <link href="https://cdn.bootcdn.net/ajax/libs/Swiper/5.4.5/css/swiper.min.css" rel="stylesheet">
 <link rel="stylesheet" href="../../xznstatic/css/common.css"/>
+<link rel="stylesheet" href="../../elementui/elementui.css"/>
 <link rel="stylesheet" href="../../xznstatic/css/style.css"/>
 <script src="../../xznstatic/js/jquery-1.11.3.min.js"></script>
 <script src="../../xznstatic/js/jquery.SuperSlide.2.1.1.js"></script>
@@ -404,28 +405,63 @@
 		-o-transition-timing-function: linear;
 		transition-timing-function: linear;
 	}
+
+	.time {
+		font-size: 13px;
+		color: #999;
+	}
+
+	.bottom {
+		margin-top: 13px;
+		line-height: 12px;
+	}
+
+	.button {
+		padding: 0;
+		float: right;
+	}
+
+	.image {
+		width: 100%;
+		height: 200px;
+		display: block;
+	}
+
+	.clearfix:before,
+	.clearfix:after {
+		display: table;
+		content: "";
+	}
+
+	.clearfix:after {
+		clear: both
+	}
+
+	.swiper-button-next, .swiper-button-prev{
+		color: #fff;
+	}
 </style>
 <body>
   <div id="app">
-    <div class="banner">
-		<div class="layui-carousel" id="test1" :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"0px","borderWidth":"0","width":"100%","borderStyle":"solid"}'>
-		  <div carousel-item>
-			<div v-for="(item,index) in swiperList" :key="index">
-				<img style="width: 100%;height: 100%;object-fit:cover;" :src="item.img" />
-			</div>
-		  </div>
-		</div>
-      <!-- <div class="bd">
-        <ul>
-          <li v-for="(item,index) in swiperList" v-bind:key="index"><img style="width: 1920px;height: 492px;" :src="item.img" /></li>
-        </ul>
-        <div class="hd">
-          <ul>
-            <li v-for="(item,index) in swiperList" v-bind:key="index"></li>
-          </ul>
-        </div>
-      </div> -->
-    </div>
+<!--    <div class="banner">-->
+<!--		<div class="layui-carousel" id="test1" :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"0px","borderWidth":"0","width":"100%","borderStyle":"solid"}'>-->
+<!--		  <div carousel-item>-->
+<!--			<div v-for="(item,index) in swiperList" :key="index">-->
+<!--				<img style="width: 100%;height: 100%;object-fit:cover;" :src="item.img" />-->
+<!--			</div>-->
+<!--		  </div>-->
+<!--		</div>-->
+<!--      &lt;!&ndash; <div class="bd">-->
+<!--        <ul>-->
+<!--          <li v-for="(item,index) in swiperList" v-bind:key="index"><img style="width: 1920px;height: 492px;" :src="item.img" /></li>-->
+<!--        </ul>-->
+<!--        <div class="hd">-->
+<!--          <ul>-->
+<!--            <li v-for="(item,index) in swiperList" v-bind:key="index"></li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div> &ndash;&gt;-->
+<!--    </div>-->
 
 
     <div id="content">
@@ -433,25 +469,41 @@
 
 	<!-- 公告信息 -->
 	<!-- 样式二 -->
-	<div class="news index-pv2" style="display: flex;justify-content: center;width:100%" :style='{"padding":"10px 0 10px 0","boxShadow":"0 0 2px rgba(0, 206, 209, 1)","margin":"0px 0 0 0","borderColor":"rgba(0, 206, 209, 1)","backgroundColor":"rgba(24, 174, 67, 1)","borderRadius":"0","borderWidth":"0","borderStyle":"solid"}'>
+	<div class="news index-pv2" style="display: flex;justify-content: center;width:100%" :style='{"padding":"10px 0 10px 0","boxShadow":"0 0 2px rgba(0, 206, 209, 1)","margin":"0px 0 0 0","borderColor":"rgba(0, 206, 209, 1)","backgroundColor":"rgba(238,238,238)","borderRadius":"0","borderWidth":"0","borderStyle":"solid"}'>
 	  <div class="box" style='width:80%'>
-	    <div class="title" :style='{"padding":"10px 0 10px 20px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"10px 0 10px 0","borderColor":"rgba(255, 255, 255, 1)","backgroundColor":"rgba(255, 144, 18, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"5px 5px 0 0","alignItems":"flex-start","borderWidth":"0 0  6px","fontSize":"16px","borderStyle":"solid"}'>
+	    <div class="title" :style='{"padding":"10px 0 10px 20px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"10px 0 10px 0","borderColor":"#545c64","backgroundColor":"#409EFF","color":"rgba(255, 255, 255, 1)","borderRadius":"5px 5px 0 0","alignItems":"flex-start","borderWidth":"0 0  6px","fontSize":"16px","borderStyle":"solid"}'>
 	      <span>HOME NEWS</span><span>公告信息</span>
 	    </div>
-	    <div class="list">
-	      <div v-for="(item,index) in newsList" :key="index" class="list-item" @click="jump('../news/detail.html?id='+item.id)" :class="2=='1'?'list-item1':2=='3'?'list-item3':''">
-	        <div class="list-item-body animation-box" :style='{"padding":"6px","boxShadow":"0 0 6px rgba(255,0,0,.8)","margin":"0 0 10px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 1)","borderRadius":"4px","borderWidth":"0","borderStyle":"solid"}'>
-			  <img :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","borderColor":"rgba(0,0,0,.3)","borderRadius":"150px","borderWidth":"0","width":"150px","borderStyle":"solid","height":"150px"}' :src="item.picture" alt="" />
-	          <div class="item-info">
-				<div v-if='true' :style='{"isshow":true,"padding":"0","margin":"5px 0","backgroundColor":"rgba(0,0,0,0)","color":"rgba(149, 149, 149, 1)","borderRadius":"0","textAlign":"center","fontSize":"14px"}' class="name">{{item.title}}</div>
-				<div :style='{"padding":"0","margin":"0","backgroundColor":"rgba(0,0,0,0)","color":"#999","borderRadius":"0","textAlign":"right","fontSize":"12px"}' class="time">{{item.addtime}}</div>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
+<!--	    <div class="list">-->
+<!--	      <div v-for="(item,index) in newsList" :key="index" class="list-item" @click="jump('../news/detail.html?id='+item.id)" :class="2=='1'?'list-item1':2=='3'?'list-item3':''">-->
+<!--	        <div class="list-item-body animation-box" :style='{"padding":"6px","boxShadow":"0 0 6px rgba(255,0,0,.8)","margin":"0 0 10px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 1)","borderRadius":"4px","borderWidth":"0","borderStyle":"solid"}'>-->
+<!--			  <img :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","borderColor":"rgba(0,0,0,.3)","borderRadius":"150px","borderWidth":"0","width":"150px","borderStyle":"solid","height":"150px"}' :src="item.picture" alt="" />-->
+<!--	          <div class="item-info">-->
+<!--				<div v-if='true' :style='{"isshow":true,"padding":"0","margin":"5px 0","backgroundColor":"rgba(0,0,0,0)","color":"rgba(149, 149, 149, 1)","borderRadius":"0","textAlign":"center","fontSize":"14px"}' class="name">{{item.title}}</div>-->
+<!--				<div :style='{"padding":"0","margin":"0","backgroundColor":"rgba(0,0,0,0)","color":"#999","borderRadius":"0","textAlign":"right","fontSize":"12px"}' class="time">{{item.addtime}}</div>-->
+<!--	          </div>-->
+<!--	        </div>-->
+<!--	      </div>-->
+<!--	    </div>-->
+		  <el-row :gutter="12">
+			  <el-col :span="8" v-for="(item,index) in newsList" :key="index" style="margin-bottom: 10px;cursor: pointer">
+				  <el-card shadow="hover" >
+					  <div class="block" style="display: flex" @click="jump('../news/detail.html?id='+item.id)">
+						  <el-avatar :size="120" :src="item.picture"></el-avatar>
+						  <div style="margin-left: 20px;width: calc(100% - 130px)">
+							  <h2 style="font-size: 18px">{{item.title}}</h2>
+							  <p style="margin-top: 10px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;" >
+								  招标公告招标公告招标公告招标公告招标公告招标公告招标公告招标公告招标公告招标公告招标公告招标公告招标公告招标公告招标公告招标公告招标公告招标公告招标公告招标公告招标公告招标公告公告s
+							  </p>
+							  <div style="text-align: right;margin-top: 10px">{{item.addtime}}</div>
+						  </div>
+					  </div>
+				  </el-card>
+			  </el-col>
+		  </el-row>
 	    <div class="clear"></div>
 	    <div style="text-align: center;">
-		<button @click="jump('../news/list.html')" style="display: block;cursor: pointer;" type="button" :style='{"padding":"0 15px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"4px auto","borderColor":"#ccc","backgroundColor":"rgba(255, 144, 18, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"6px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"34px"}'>查看更多<i v-if="true" :style='{"isshow":true,"padding":"0 0 0 1px","fontSize":"14px","color":"rgba(255, 255, 255, 1)"}' class="layui-icon layui-icon-next"></i></el-button>
+		<el-button @click="jump('../news/list.html')" style="display: block;cursor: pointer;" type="button" :style='{"padding":"0 15px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"4px auto","borderColor":"#ccc","backgroundColor":"#409EFF","color":"rgba(255, 255, 255, 1)","borderRadius":"6px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"34px"}'>查看更多<i v-if="true" :style='{"isshow":true,"padding":"0 0 0 1px","fontSize":"14px","color":"rgba(255, 255, 255, 1)"}' class="layui-icon layui-icon-next"></i></el-button>
 	    </div>
 	  </div>
 	</div>
@@ -460,17 +512,25 @@
 	<!-- 样式三 -->
 	<div class="lists index-pv3" :style='{"padding":"10px 0 10px 0","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0px 0 0 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(238, 238, 238, 1)","borderRadius":"0","borderWidth":"0","borderStyle":"solid"}'>
 	  <div class="box" style='width:80%'>
-	    <div class="title" :style='{"padding":"10px 0 10px 10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"10px 0 20px 0","borderColor":"rgba(255, 144, 18, 1)","backgroundColor":"rgba(19, 175, 105, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"5px 5px 0 0","alignItems":"flex-start","borderWidth":"0 0 10px 0","fontSize":"16px","borderStyle":"solid"}'>
+	    <div class="title" :style='{"padding":"10px 0 10px 10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"10px 0 20px 0","borderColor":"#545c64","backgroundColor":"rgba(19, 175, 105, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"5px 5px 0 0","alignItems":"flex-start","borderWidth":"0 0 10px 0","fontSize":"16px","borderStyle":"solid"}'>
 	      <span>DATA SHOW</span><span>招标信息展示</span>
 	    </div>
 	    <div class="list">
 			<div class="swiper-container" id="listszhaobiaoxinxi">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide animation-box" :style='{"padding":"0","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0","borderStyle":"solid"}' v-for="(item,index) in zhaobiaoxinxiList" :key="index" @click="jump('../zhaobiaoxinxi/detail.html?id='+item.id)">
-						<div class="img-box">
-							<img :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","borderColor":"rgba(0,0,0,.3)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"220px"}' :src="item.tupian?item.tupian.split(',')[0]:''" alt="" />
+					<div class="swiper-slide animation-box" :style='{"padding":"0","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0","borderStyle":"solid"}'
+						 v-for="(item,index) in zhaobiaoxinxiList" :key="index" @click="jump('../zhaobiaoxinxi/detail.html?id='+item.id)">
+<!--						<div class="img-box">-->
+<!--							<img :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","borderColor":"rgba(0,0,0,.3)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"220px"}' :src="item.tupian?item.tupian.split(',')[0]:''" alt="" />-->
+<!--						</div>-->
+<!--						<div v-if='true' :style='{"isshow":true,"padding":"8px 0","margin":"0px 0","backgroundColor":"rgba(19, 175, 105, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"0 0 0px 0px","textAlign":"center","fontSize":"12px"}' class="name">{{item.xiangmumingcheng}}</div>-->
+						<img :src="item.tupian?item.tupian.split(',')[0]:''" class="image">
+						<div style="padding: 14px;">
+							<span>{{ item.xiangmumingcheng }}</span>
+							<div class="bottom clearfix">
+								<time class="time">{{item.addtime}}</time>
+							</div>
 						</div>
-						<div v-if='true' :style='{"isshow":true,"padding":"8px 0","margin":"0px 0","backgroundColor":"rgba(19, 175, 105, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"0 0 0px 0px","textAlign":"center","fontSize":"12px"}' class="name">{{item.xiangmumingcheng}}</div>
 					</div>
 				</div>
 				<!-- 如果需要分页器 -->
@@ -489,6 +549,7 @@
   <script src="../../layui/layui.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
   <script src="../../js/vue.js"></script>
+  <script src="../../elementui/elementui.js"></script>
   <script src="../../js/config.js"></script>
   <script src="../../modules/config.js"></script>
   <script src="../../js/utils.js"></script>

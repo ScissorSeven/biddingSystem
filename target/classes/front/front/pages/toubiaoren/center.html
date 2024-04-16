@@ -178,13 +178,13 @@
 					</div>
 				</div>
 			</div> -->
-			<div class="layui-carousel" id="swiper" :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"0px","borderWidth":"0","width":"100%","borderStyle":"solid"}'>
-			  <div carousel-item>
-				<div v-for="(item,index) in swiperList" :key="index">
-					<img style="width: 100%;height: 100%;object-fit:cover;" :src="item.img" />
-				</div>
-			  </div>
-			</div>
+<!--			<div class="layui-carousel" id="swiper" :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"0px","borderWidth":"0","width":"100%","borderStyle":"solid"}'>-->
+<!--			  <div carousel-item>-->
+<!--				<div v-for="(item,index) in swiperList" :key="index">-->
+<!--					<img style="width: 100%;height: 100%;object-fit:cover;" :src="item.img" />-->
+<!--				</div>-->
+<!--			  </div>-->
+<!--			</div>-->
 			<!-- 轮播图 -->
 
 			<!-- 标题 -->
@@ -192,14 +192,14 @@
 			<div class="line-container">
 				<p class="line" style="background: #EEEEEE;"> 个人中心 </p>
 			</div> -->
-			<div class="index-title" :style='{"padding":"10px","boxShadow":"10px 8px  0px rgba(255,144,18","margin":"20px auto","borderColor":"rgba(255, 69, 0, 1)","backgroundColor":"rgba(19, 175, 105, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"0px","borderWidth":"0","fontSize":"20px","borderStyle":"solid","height":"auto"}'>
+			<div class="index-title" :style='{"padding":"10px","boxShadow":"10px 8px  0px #545c64","margin":"20px auto","borderColor":"rgba(255, 69, 0, 1)","backgroundColor":"rgba(19, 175, 105, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"0px","borderWidth":"0","fontSize":"20px","borderStyle":"solid","height":"auto"}'>
 			  <span>USER / CENTER</span><span>个人中心</span>
 			</div>
 			<!-- 标题 -->
 
 			<div class="center-container">
 				<!-- 个人中心菜单 config.js-->
-				<div class="left-container" :style='{"padding":"0","boxShadow":"0px 0px 0px rgba(19,175,105)","margin":"0px ","borderColor":"rgba(255, 140, 0, 1)","backgroundColor":"rgba(255, 255, 255, 1)","borderRadius":"0","borderWidth":"2px","width":"180px","borderStyle":"solid"}'>
+				<div class="left-container" :style='{"padding":"0","boxShadow":"0px 0px 0px rgba(19,175,105)","margin":"0px ","borderColor":"#545c64","backgroundColor":"rgba(255, 255, 255, 1)","borderRadius":"0","borderWidth":"2px","width":"180px","borderStyle":"solid"}'>
 					<ul class="layui-nav layui-nav-tree">
 						<li v-for="(item,index) in centerMenu" v-bind:key="index" class="layui-nav-item" :class="index==0?'layui-this':''">
 							<a :href="'javascript:jump(\''+item.url+'\')'">{{item.name}}</a>
@@ -208,7 +208,7 @@
 				</div>
 				<!-- 个人中心菜单 -->
 				<!-- 个人中心 -->
-				<div class="right-container" :style='{"padding":"30px","boxShadow":"15px 15px 4px rgba(19,175,105)","margin":"0","borderColor":"rgba(255, 144, 18, 1)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"2px 2px 2px 0","borderStyle":"solid"}'>
+				<div class="right-container" :style='{"padding":"30px","boxShadow":"15px 15px 4px rgba(19,175,105)","margin":"0","borderColor":"#545c64","backgroundColor":"#fff","borderRadius":"0","borderWidth":"2px 2px 2px 0","borderStyle":"solid"}'>
 					<form class="layui-form" lay-filter="myForm">
 						<!-- 主键 -->
 						<input type="hidden" name="id" id="id" />
@@ -270,7 +270,7 @@
 						<div class="layui-form-item">
 							<div class="layui-input-block" style="display: flex;flex-wrap:wrap;">
 								<button :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"10px 20px 10px 5px","borderColor":"#ccc","backgroundColor":"rgba(19, 175, 105, 1)","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"90px","fontSize":"14px","borderStyle":"solid","height":"44px"}' class="layui-btn btn-submit btn-theme" lay-submit lay-filter="*">更新信息</button>
-                <button :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"10px 200px 10px 5px","borderColor":"rgba(255, 140, 0, 1)","backgroundColor":"rgba(255, 140, 0, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"8px","borderWidth":"0","width":"90px","fontSize":"14px","borderStyle":"solid","height":"44px"}' @click="logout" class="layui-btn btn-submit">退出登录</button>
+                <button :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"10px 200px 10px 5px","borderColor":"#545c64","backgroundColor":"#545c64","color":"rgba(255, 255, 255, 1)","borderRadius":"8px","borderWidth":"0","width":"90px","fontSize":"14px","borderStyle":"solid","height":"44px"}' @click="logout" class="layui-btn btn-submit">退出登录</button>
 							</div>
 						</div>
 						<!-- <div class="layui-form-item">

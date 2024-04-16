@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="../../layui/css/layui.css">
 		<!-- 样式 -->
 		<link rel="stylesheet" href="../../css/style.css" />
+		<link rel="stylesheet" href="../../elementui/elementui.css"/>
 		<!-- 主题（主要颜色设置） -->
 		<link rel="stylesheet" href="../../css/theme.css" />
 		<!-- 通用的css -->
@@ -76,14 +77,14 @@
 	<body style="padding-bottom: 10px;">
 
 		<div id="app">
-			<div class="layui-carousel" id="swiper" :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"0px","borderWidth":"0","width":"100%","borderStyle":"solid"}'>
-			  <div carousel-item id="swiper-item">
-				<div v-for="(item,index) in swiperList" :key="index">
-					<img style="width: 100%;height: 100%;object-fit:cover;" :src="item.img" />
-				</div>
-			  </div>
-			</div>
-			<div class="index-title" :style='{"padding":"10px","boxShadow":"10px 8px  0px rgba(255,144,18","margin":"20px auto","borderColor":"rgba(255, 69, 0, 1)","backgroundColor":"rgba(19, 175, 105, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"0px","borderWidth":"0","fontSize":"20px","borderStyle":"solid","height":"auto"}'>
+<!--			<div class="layui-carousel" id="swiper" :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"0px","borderWidth":"0","width":"100%","borderStyle":"solid"}'>-->
+<!--			  <div carousel-item id="swiper-item">-->
+<!--				<div v-for="(item,index) in swiperList" :key="index">-->
+<!--					<img style="width: 100%;height: 100%;object-fit:cover;" :src="item.img" />-->
+<!--				</div>-->
+<!--			  </div>-->
+<!--			</div>-->
+			<div class="index-title" :style='{"padding":"10px","boxShadow":"10px 8px  0px #545c64","margin":"20px auto","borderColor":"rgba(255, 69, 0, 1)","backgroundColor":"rgba(19, 175, 105, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"0px","borderWidth":"0","fontSize":"20px","borderStyle":"solid","height":"auto"}'>
 			  <span>NEWS / INFORMATION</span><span>公告信息</span>
 			</div>
 
@@ -103,7 +104,7 @@
 						返回列表
 					</div>
 				</div> -->
-				<div class="btn-container" :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"20px 0 10px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(238, 238, 238, 1)","borderRadius":"4px","alignItems":"flex-start","borderWidth":"0","borderStyle":"solid","justifyContent":"flex-end","height":"44px"}'>
+				<div class="btn-container" style="display: flex;align-items: center" :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"20px 0 10px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(238, 238, 238, 1)","borderRadius":"4px","borderWidth":"0","borderStyle":"solid","height":"44px"}'>
 					<div class="title" style="font-size: 18px;color:#999;">
 						本篇文章：{{detail.title}}
 					</div>
@@ -118,6 +119,7 @@
 		<script src="../../layui/layui.js"></script>
 		<!-- vue -->
 		<script src="../../js/vue.js"></script>
+		<script src="../../elementui/elementui.js"></script>
 		<!-- 组件配置信息 -->
 		<script src="../../js/config.js"></script>
 		<!-- 扩展插件配置信息 -->

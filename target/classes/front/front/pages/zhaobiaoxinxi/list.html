@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="../../layui/css/layui.css">
 <link rel="stylesheet" href="../../xznstatic/css/common.css"/>
 <link rel="stylesheet" href="../../xznstatic/css/style.css"/>
+	<link rel="stylesheet" href="../../elementui/elementui.css"/>
 <script type="text/javascript" src="../../xznstatic/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="../../xznstatic/js/jquery.SuperSlide.2.1.1.js"></script>
 </head>
@@ -241,21 +242,51 @@ width: 100%;
   .layui-laypage .layui-laypage-skip {
     padding-left: 10px;
   }
+	.time {
+		font-size: 13px;
+		color: #999;
+	}
+
+	.bottom {
+		margin-top: 13px;
+		line-height: 12px;
+	}
+
+	.button {
+		padding: 0;
+		float: right;
+	}
+
+	.image {
+		width: 100%;
+		height: 200px;
+		display: block;
+	}
+
+	.clearfix:before,
+	.clearfix:after {
+		display: table;
+		content: "";
+	}
+
+	.clearfix:after {
+		clear: both
+	}
 </style>
 <body>
   <div id="app">
-    <div class="banner">
-      <div class="layui-carousel" id="test1" :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"0px","borderWidth":"0","width":"100%","borderStyle":"solid"}'>
-      		  <div carousel-item>
-      			<div v-for="(item,index) in swiperList" :key="index">
-      				<img style="width: 100%;height: 100%;object-fit:cover;" :src="item.img" />
-      			</div>
-      		  </div>
-      		</div>
-    </div>
+<!--    <div class="banner">-->
+<!--      <div class="layui-carousel" id="test1" :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"0px","borderWidth":"0","width":"100%","borderStyle":"solid"}'>-->
+<!--      		  <div carousel-item>-->
+<!--      			<div v-for="(item,index) in swiperList" :key="index">-->
+<!--      				<img style="width: 100%;height: 100%;object-fit:cover;" :src="item.img" />-->
+<!--      			</div>-->
+<!--      		  </div>-->
+<!--      		</div>-->
+<!--    </div>-->
 	<div class="recommend index-pv1" :style='{"padding":"10px 0 10px 0","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0px 0 0 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(238, 238, 238, 1)","borderRadius":"0","borderWidth":"0","borderStyle":"solid"}'>
 		<div class="box" style='width:80%'>
-	    <div class="title" :style='{"padding":"10px  0 10px 0px","boxShadow":"10px 8px 0px rgba(255,144,18)","margin":"10px 0 10px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(19, 175, 105, 1)","borderRadius":"0px","borderWidth":"0","borderStyle":"solid","justifyContent":"space-between","height":"54px"}'>
+	    <div class="title" :style='{"padding":"10px  0 10px 0px","boxShadow":"10px 8px 0px #545c64","margin":"10px 0 10px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(19, 175, 105, 1)","borderRadius":"0px","borderWidth":"0","borderStyle":"solid","justifyContent":"space-between","height":"54px"}'>
 	      <span :style='{"padding":"3px 18px  3px  13px ","boxShadow":"0 0 6px rgba(255,0,0,0)","borderColor":"rgba(255,0,0,1)","backgroundColor":"rgba(199, 21, 133, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"0 18px 18px 0","borderWidth":"0","fontSize":"18px","borderStyle":"solid"}'>招标信息</span><span :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(255,0,0,0)","borderColor":"rgba(0,0,0,0)","backgroundColor":"rgba(0,0,0,0)","color":"rgba(255, 255, 255, 1)","borderRadius":"0","borderWidth":"0","fontSize":"14px","borderStyle":"solid"}'>您现在的位置：招标信息</span>
 	    </div>
 		<form class="layui-form filter" :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"20px 0 10px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(238, 238, 238, 1)","borderRadius":"4px","alignItems":"flex-start","borderWidth":"0","borderStyle":"solid","justifyContent":"flex-end","height":"44px"}'>
@@ -275,17 +306,30 @@ width: 100%;
 			</button>
 		</form>
 	    <!-- 样式一 -->
-	    <div class="list" style="position: relative;">
-	      <div @click="jump('../zhaobiaoxinxi/detail.html?id='+item.id)" v-for="(item,index) in dataList" :key="index" class="list-item" :class="4=='3'?'list-item3':4=='5'?'list-item5':''">
-	        <div class="list-item-body animation-box" :style='{"padding":"0px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(238, 238, 238, 1)","borderRadius":"4px","borderWidth":"0","borderStyle":"solid"}'>
-				<img :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","borderColor":"rgba(0,0,0,.3)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"230px"}' :src="item.tupian?item.tupian.split(',')[0]:''">
-				<div class="info">
-					<div v-if="item.price" :style='{"padding":"5px 2px","margin":"0px 0 0 0","backgroundColor":"rgba(19, 175, 105, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"0","textAlign":"right","width":"100%","fontSize":"16px"}' class="price">{{item.price}} RMB</div>
-					<div v-if="true" :style='{"isshow":true,"padding":"10px 0px","margin":"1px 0 0 0","backgroundColor":"rgba(19, 175, 105, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"0","textAlign":"center","width":"100%","fontSize":"14px"}' class="name">{{item.xiangmumingcheng}}</div>
-				</div>
-	        </div>
-	      </div>
-	    </div>
+<!--	    <div class="list" style="position: relative;">-->
+<!--	      <div @click="jump('../zhaobiaoxinxi/detail.html?id='+item.id)" v-for="(item,index) in dataList" :key="index" class="list-item" :class="4=='3'?'list-item3':4=='5'?'list-item5':''">-->
+<!--	        <div class="list-item-body animation-box" :style='{"padding":"0px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(238, 238, 238, 1)","borderRadius":"4px","borderWidth":"0","borderStyle":"solid"}'>-->
+<!--				<img :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","borderColor":"rgba(0,0,0,.3)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"230px"}' :src="item.tupian?item.tupian.split(',')[0]:''">-->
+<!--				<div class="info">-->
+<!--					<div v-if="item.price" :style='{"padding":"5px 2px","margin":"0px 0 0 0","backgroundColor":"rgba(19, 175, 105, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"0","textAlign":"right","width":"100%","fontSize":"16px"}' class="price">{{item.price}} RMB</div>-->
+<!--					<div v-if="true" :style='{"isshow":true,"padding":"10px 0px","margin":"1px 0 0 0","backgroundColor":"rgba(19, 175, 105, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"0","textAlign":"center","width":"100%","fontSize":"14px"}' class="name">{{item.xiangmumingcheng}}</div>-->
+<!--				</div>-->
+<!--	        </div>-->
+<!--	      </div>-->
+<!--	    </div>-->
+			<el-row>
+				<el-col :span="6" v-for="(item, index) in dataList" :key="index">
+					<el-card :body-style="{ padding: '0px' }" style="margin-right: 20px;margin-bottom: 20px">
+						<img :src="item.tupian?item.tupian.split(',')[0]:''" class="image">
+						<div style="padding: 14px;">
+							<span>{{ item.xiangmumingcheng }}</span>
+							<div class="bottom clearfix">
+								<time class="time">{{item.addtime}}</time>
+							</div>
+						</div>
+					</el-card>
+				</el-col>
+			</el-row>
 		<div class="pager" id="pager" :style="{textAlign:2==1?'left':2==2?'center':'right'}"></div>
 	  </div>
 	</div>
@@ -297,6 +341,7 @@ width: 100%;
   <script src="../../js/vue.js"></script>
   <script src="../../js/config.js"></script>
   <script src="../../modules/config.js"></script>
+  <script src="../../elementui/elementui.js"></script>
   <script src="../../js/utils.js"></script>
 
   <script type="text/javascript">
